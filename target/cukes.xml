@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="20" time="328.871">
+<testcase classname="User can register and has an account on the website" name="User register with valid data" time="40.189">
+<system-out><![CDATA[Given User open registration page...........................................passed
+When User enter gender type.................................................passed
+And User enter first name "Mohamed" and last name "Moustafa"................passed
+And User select date of birth...............................................passed
+And User enter email "mohamed.moustafa321@test.com".........................passed
+And User enter password fields "P@ssword123"................................passed
+And User click on register button...........................................passed
+Then success registration message appears...................................passed
+And User click on continue button to return to home page....................passed
+]]></system-out>
+</testcase>
+<testcase classname="User can log in the website" name="User login with valid credentials" time="13.867">
+<system-out><![CDATA[Given User open login page..................................................passed
+When User enter email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+And User click on login button..............................................passed
+Then User login successfully and return to home page........................passed
+]]></system-out>
+</testcase>
+<testcase classname="User can log in the website" name="User login with invalid credentials" time="7.504">
+<system-out><![CDATA[Given User open login page..................................................passed
+When User enter email "invalid.email@test.com" and password "invalid.password".passed
+And User click on login button..............................................passed
+Then User login failed and error message appears............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can switch between currencies US-Euro" name="User change currency from US to Euro" time="10.1">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User select euro currency from drop down menu..........................passed
+Then All items prices change to euro........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can search for any product" name="Logged user search using product name" time="9.318">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User enter a product name "book" in search text field..................passed
+And User click on search button.............................................passed
+Then Search result appears with products related to the product name "book".passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can search for any product" name="Logged user search using product name 2" time="9.263">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User enter a product name "laptop" in search text field................passed
+And User click on search button.............................................passed
+Then Search result appears with products related to the product name "laptop".passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can search for any product" name="Logged user search using product name 3" time="10.084">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User enter a product name "nike" in search text field..................passed
+And User click on search button.............................................passed
+Then Search result appears with products related to the product name "nike".passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can search for any product" name="Logged user search using product sku" time="13.081">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User enter a product sku "SCI_FAITH" in search text field..............passed
+And User click on search button.............................................passed
+Then Search result appears with products related to the product sku "SCI_FAITH".passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can search for any product" name="Logged user search using product sku 2" time="11.315">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User enter a product sku "APPLE_CAM" in search text field..............passed
+And User click on search button.............................................passed
+Then Search result appears with products related to the product sku "APPLE_CAM".passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can search for any product" name="Logged user search using product sku 3" time="17.29">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User enter a product sku "SF_PRO_11" in search text field..............passed
+And User click on search button.............................................passed
+Then Search result appears with products related to the product sku "SF_PRO_11".passed
+]]></system-out>
+</testcase>
+<testcase classname="User can reset his/her password successfully" name="User reset password with valid email" time="7.574">
+<system-out><![CDATA[Given User at login page....................................................passed
+When User click on forgot password link.....................................passed
+And User enter valid email "mohamed.moustafa321@test.com"...................passed
+And User click on recover button............................................passed
+Then message appears tell user that an email has been sent to him...........passed
+]]></system-out>
+</testcase>
+<testcase classname="User can reset his/her password successfully" name="User reset password with invalid email" time="8.614">
+<system-out><![CDATA[Given User at login page....................................................passed
+When User click on forgot password link.....................................passed
+And User enter valid email "invalid.email@test.com".........................passed
+And User click on recover button............................................passed
+Then message appears tell user this email is not found......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can select different Categories in the website" name="User select sub-category" time="8.966">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User hover to a category and click on one of its sub-categories........passed
+Then User will navigate to a page contains products about that sub-category.passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can filter with color" name="Logged user filter products with color" time="13.495">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+And User navigate to category which has filter color options for its products.passed
+When User select a specific color from options..............................passed
+Then Category products will change to be for that color only................passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can add different products to Shopping cart" name="Logged user add different products to Shopping cart" time="31.192">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User navigate to Notebooks category page...............................passed
+And User click on Add To Cart button for a product..........................passed
+And User navigate to Books category page....................................passed
+And User click on Add To Cart button for two books from products............passed
+And User navigate to Shopping Cart page.....................................passed
+Then Shopping cart will contains all selected products......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can add different products to Wishlist" name="Logged user add different products to Wishlist" time="40.123">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User navigate to the Notebooks category page...........................passed
+And User click on Add To Wishlist button for a product......................passed
+And User navigate to the Books category page................................passed
+And User click on Add To Wishlist button for two books from products........passed
+And User navigate to Wishlist page..........................................passed
+Then Wishlist will contains all selected products...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can add different products to compare list" name="Logged user add different products to compare list" time="28.2">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User navigate to notebooks products page...............................passed
+And User add different products to the compare list.........................passed
+And User navigate to compare products list page.............................passed
+Then compare products list will contain all selected products...............passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can purchase product from the website" name="Logged user purchase with cash payment" time="27.516">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User select product from a category....................................passed
+And User add the product to the shopping cart...............................passed
+And User click on checkout button to purchase the product...................passed
+And User enter mandatory valid information for payment......................passed
+And User click on confirm button to complete the payment....................passed
+Then Success completed order message appears................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can select different tags" name="Logged user select awesome tag" time="10.522">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User open notebooks category page......................................passed
+And User click on awesome tag from product tags.............................passed
+Then User will navigate to a page contains products related to awesome tag..passed
+]]></system-out>
+</testcase>
+<testcase classname="Logged user can select different tags" name="Logged user select cell tag" time="9.819">
+<system-out><![CDATA[Given User log in with email "mohamed.moustafa321@test.com" and password "P@ssword123".passed
+When User open notebooks category page......................................passed
+And User click on cell tag from product tags................................passed
+Then User will navigate to a page contains products related to cell tag.....passed
+]]></system-out>
+</testcase>
+</testsuite>
