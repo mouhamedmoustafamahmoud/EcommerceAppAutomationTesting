@@ -5,7 +5,11 @@ import io.cucumber.java.en.When;
 import org.example.pages.HomePage;
 import org.example.pages.NotebooksCategoryPage;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
+
+import java.time.Duration;
 
 public class Category {
 
@@ -13,6 +17,8 @@ public class Category {
     NotebooksCategoryPage notebooksCategoryPage;
     Actions actions;
     SoftAssert softAssert = new SoftAssert();
+    String subCategory;
+    WebDriverWait wait = new WebDriverWait(Hooks.driver, Duration.ofSeconds(3));
 
 
     @When("User hover to a category and click on one of its sub-categories")
@@ -20,8 +26,15 @@ public class Category {
         homePage = new HomePage(Hooks.driver);
         actions = new Actions(Hooks.driver);
         actions.moveToElement(homePage.getComputersLink()).
+                moveToElement(homePage.getNotebooksLink()).build().perform();
+
+        wait.until(ExpectedConditions.visibilityOf(homePage.getNotebooksLink()));
+        subCategory = homePage.getNotebooksLink().getText().toLowerCase().trim(); // notebooks
+        System.out.println("***************" + subCategory + "*********************");
+        actions.moveToElement(homePage.getComputersLink()).
                 moveToElement(homePage.getNotebooksLink())
                 .click().build().perform();
+
     }
 
     @Then("User will navigate to a page contains products about that sub-category")
@@ -30,6 +43,8 @@ public class Category {
         softAssert.assertTrue(Hooks.driver.getCurrentUrl().contains("notebooks"));
         softAssert.assertTrue(notebooksCategoryPage.getNotebooksBreadCrumb().isDisplayed());
         softAssert.assertEquals(notebooksCategoryPage.getPageTitleHeader().getText(), "Notebooks");
+        softAssert.assertTrue(notebooksCategoryPage.getPageTitleHeader().getText().
+                              toLowerCase().equals(subCategory));
         softAssert.assertAll();
 
     }

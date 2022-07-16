@@ -7,6 +7,7 @@ C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\exam
 C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\step_definitions\Login.java
 C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\pages\BooksCategoryPage.java
 C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\step_definitions\Tags.java
+C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\step_definitions\FollowUs.java
 C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\runners\TestRunner.java
 C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\step_definitions\CheckOut.java
 C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\pages\HomePage.java
@@ -16,6 +17,7 @@ C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\exam
 C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\pages\CompareProductsPage.java
 C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\pages\RegistrationPage.java
 C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\step_definitions\PasswordRecovery.java
+C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\step_definitions\HomeSliders.java
 C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\pages\AwesomeTagPage.java
 C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\step_definitions\CompareProducts.java
 C:\Users\mouha\IdeaProjects\EcommerceAppAutomationTesting\src\test\java\org\example\step_definitions\Category.java

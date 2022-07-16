@@ -1,90 +1,59 @@
 package org.example.step_definitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.example.pages.*;
-import org.openqa.selenium.interactions.Actions;
+import org.example.pages.HomePage;
+import org.example.pages.WishListPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 
 public class WishList {
 
     HomePage homePage;
-    NotebooksCategoryPage notebooksCategoryPage;
-    BooksCategoryPage booksCategoryPage;
-    ProductDetailsPage productDetailsPage;
     WishListPage wishListPage;
     WebDriverWait wait = new WebDriverWait(Hooks.driver, Duration.ofSeconds(10));
-    Actions actions;
+    SoftAssert softAssert = new SoftAssert();
 
-    @When("User navigate to the Notebooks category page")
-    public void user_navigate_to_notebooks_category_page() {
+    @Given("User at the homepage")
+    public void user_at_the_homepage() {
         homePage = new HomePage(Hooks.driver);
-        actions = new Actions(Hooks.driver);
-        actions.moveToElement(homePage.getComputersLink())
-                .moveToElement(homePage.getNotebooksLink())
-                .click().build().perform();
+        homePage.getHomePageLink().click();
     }
 
-    @And("User click on Add To Wishlist button for a product")
-    public void user_click_on_add_to_wishlist_button_for_a_product() {
-        notebooksCategoryPage = new NotebooksCategoryPage(Hooks.driver);
-        notebooksCategoryPage.getAsusLaptopLink().click();
-        productDetailsPage = new ProductDetailsPage(Hooks.driver);
-        productDetailsPage.getAddToWishlistBtn().click();
-        productDetailsPage = new ProductDetailsPage(Hooks.driver);
-        wait.until(ExpectedConditions.visibilityOf(productDetailsPage.getSuccessNotification()));
-        productDetailsPage.getNotificationBarCloseBtn().click();
+    @When("User click on add to wishlist button of htc phone")
+    public void user_click_on_add_to_wishlist_button_of_htc_phone() {
+        homePage.getHtcPhoneAddToWishlistBtn().click();
     }
 
-    @And("User navigate to the Books category page")
-    public void user_navigate_to_books_category_page() throws InterruptedException {
-        wait.until(ExpectedConditions.elementToBeClickable(productDetailsPage.getBooksLink()));
-        // I tried a lot with Explicit Wait but not worked correctly every time, so I will use Thread.sleep()
-        Thread.sleep(3000);
-        productDetailsPage.getBooksLink().click();
+    @And("User click on Wishlist link")
+    public void user_click_on_wishlist_link() {
+        homePage = new HomePage(Hooks.driver);
+        wait.until(ExpectedConditions.invisibilityOf(homePage.getSuccessNotification()));
+        homePage.getWishListLink().click();
     }
 
-    @And("User click on Add To Wishlist button for two books from products")
-    public void user_click_on_add_to_wishlist_button_for_two_books_from_products() throws InterruptedException {
-        // First Book
-        booksCategoryPage = new BooksCategoryPage(Hooks.driver);
-        booksCategoryPage.getFahrenheit451BookLink().click();
-        productDetailsPage = new ProductDetailsPage(Hooks.driver);
-        productDetailsPage.getAddToWishlistBtn().click();
-        productDetailsPage = new ProductDetailsPage(Hooks.driver);
-        wait.until(ExpectedConditions.visibilityOf(productDetailsPage.getSuccessNotification()));
-        productDetailsPage.getNotificationBarCloseBtn().click();
-        wait.until(ExpectedConditions.elementToBeClickable(productDetailsPage.getBooksLink()));
-        // I tried a lot with Explicit Wait but not worked correctly every time, so I will use Thread.sleep()
-        Thread.sleep(3000);
-        productDetailsPage.getBooksLink().click();
-        // Second Book
-        booksCategoryPage = new BooksCategoryPage(Hooks.driver);
-        booksCategoryPage.getFirstPrizePiesBookLink().click();
-        productDetailsPage = new ProductDetailsPage(Hooks.driver);
-        productDetailsPage.getAddToWishlistBtn().click();
-        productDetailsPage = new ProductDetailsPage(Hooks.driver);
-        wait.until(ExpectedConditions.visibilityOf(productDetailsPage.getSuccessNotification()));
-        productDetailsPage.getNotificationBarCloseBtn().click();
-        wait.until(ExpectedConditions.visibilityOf(productDetailsPage.getWishListLink()));
+    @Then("success message appears which confirm adding of the product")
+    public void success_message_appears_which_confirm_adding_of_the_product() {
+        homePage = new HomePage(Hooks.driver);
+        softAssert.assertTrue(homePage.getSuccessNotification().isDisplayed());
+        softAssert.assertEquals(homePage.getSuccessNotification().
+                getCssValue("background-color"), "rgba(75, 176, 122, 1)"); // Green
+        softAssert.assertAll();
     }
 
-    @And("User navigate to Wishlist page")
-    public void user_navigate_to_wishlist_page() throws InterruptedException {
-        wait.until(ExpectedConditions.elementToBeClickable(productDetailsPage.getWishListLink()));
-        // I tried a lot with Explicit Wait but not worked correctly every time, so I will use Thread.sleep()
-        Thread.sleep(3000);
-        productDetailsPage.getWishListLink().click();
-    }
 
-    @Then("Wishlist will contains all selected products")
-    public void wishlist_will_contains_all_selected_products() {
+    @Then("User will navigate to wishlist page which contain htc phone product with its quantity")
+    public void user_will_navigate_to_wishlist_page_which_contain_htc_phone_product_with_its_quantity() {
         wishListPage = new WishListPage(Hooks.driver);
-        Assert.assertEquals(wishListPage.getNumOfProducts().size(), 3); // No of products in Wishlist
+        softAssert.assertTrue(Hooks.driver.getCurrentUrl().contains("wishlist"));
+        int productQuantity = Integer.parseInt(wishListPage.getProductQuantity().getAttribute("value"));
+        softAssert.assertTrue(productQuantity > 0);
+        softAssert.assertAll();
     }
+
 }

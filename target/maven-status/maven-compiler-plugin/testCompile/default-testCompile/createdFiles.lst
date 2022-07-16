@@ -1,3 +1,4 @@
+org\example\step_definitions\FollowUs.class
 org\example\step_definitions\Tags.class
 org\example\step_definitions\WishList.class
 org\example\pages\WishListPage.class
@@ -19,6 +20,7 @@ org\example\pages\ShoesCategoryPage.class
 org\example\step_definitions\ShoppingCart.class
 org\example\step_definitions\Hooks.class
 org\example\pages\CheckOutPage.class
+org\example\step_definitions\HomeSliders.class
 org\example\step_definitions\Login.class
 org\example\runners\TestRunner.class
 org\example\pages\BooksCategoryPage.class

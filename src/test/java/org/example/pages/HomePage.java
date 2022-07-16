@@ -9,11 +9,17 @@ import java.util.List;
 
 public class HomePage {
 
+    @FindBy(xpath = "//div[@class='header-logo']/a")
+    WebElement homePageLink;
+
     @FindBy(linkText = "Register")
     WebElement registerLink;
 
     @FindBy(linkText = "Log in")
     WebElement loginLink;
+
+    @FindBy(xpath = "//a[@class='ico-wishlist']")
+    WebElement wishListLink;
 
     @FindBy(linkText = "My account")
     WebElement myAccountLink;
@@ -45,6 +51,39 @@ public class HomePage {
     @FindBy(css = "span.price.actual-price")
     List<WebElement> prices;
 
+    @FindBy(xpath = "//div[@class='nivo-controlNav']/a[1]")
+    WebElement nokiaSelector;
+
+    @FindBy(xpath = "//div[@class='nivoSlider']/a[1]")
+    WebElement nokiaImgLink;
+
+    @FindBy(xpath = "//div[@class='nivo-controlNav']/a[2]")
+    WebElement iphoneSelector;
+
+    @FindBy(xpath = "//div[@class='nivoSlider']/a[2]")
+    WebElement iphoneImgLink;
+
+    @FindBy(css = "li.facebook")
+    WebElement facebookIcon;
+
+    @FindBy(css = "li.twitter")
+    WebElement twitterIcon;
+
+    @FindBy(css = "li.rss")
+    WebElement rssIcon;
+
+    @FindBy(css = "li.youtube")
+    WebElement youtubeIcon;
+
+    @FindBy(xpath = "(//div[@class='buttons'])[3]/button[3]")
+    WebElement htcPhoneAddToWishlistBtn;
+
+    @FindBy(css = "span.close")
+    WebElement notificationBarCloseBtn;
+
+    @FindBy(css = "div.bar-notification.success")
+    WebElement successNotification;
+
     WebDriver driver;
 
     public HomePage(WebDriver driver) {
@@ -52,8 +91,16 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
+    public WebElement getHomePageLink() {
+        return homePageLink;
+    }
+
     public WebElement getRegisterLink() {
         return registerLink;
+    }
+
+    public WebElement getWishListLink() {
+        return wishListLink;
     }
 
     public WebElement getLoginLink() {
@@ -100,4 +147,47 @@ public class HomePage {
         return prices;
     }
 
+    public WebElement getNokiaSelector() {
+        return nokiaSelector;
+    }
+
+    public WebElement getNokiaImgLink() {
+        return nokiaImgLink;
+    }
+
+    public WebElement getIphoneSelector() {
+        return iphoneSelector;
+    }
+
+    public WebElement getIphoneImgLink() {
+        return iphoneImgLink;
+    }
+
+    public WebElement getFacebookIcon() {
+        return facebookIcon;
+    }
+
+    public WebElement getTwitterIcon() {
+        return twitterIcon;
+    }
+
+    public WebElement getRssIcon() {
+        return rssIcon;
+    }
+
+    public WebElement getYoutubeIcon() {
+        return youtubeIcon;
+    }
+
+    public WebElement getHtcPhoneAddToWishlistBtn() {
+        return htcPhoneAddToWishlistBtn;
+    }
+
+    public WebElement getNotificationBarCloseBtn() {
+        return notificationBarCloseBtn;
+    }
+
+    public WebElement getSuccessNotification() {
+        return successNotification;
+    }
 }

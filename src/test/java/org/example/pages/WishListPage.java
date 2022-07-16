@@ -12,6 +12,9 @@ public class WishListPage {
     @FindBy(xpath = "//table[@class='cart']/tbody/tr")
     List<WebElement> numOfProducts;
 
+    @FindBy(css = "input.qty-input")
+    WebElement productQuantity;
+
     WebDriver driver;
 
     public WishListPage(WebDriver driver) {
@@ -21,5 +24,9 @@ public class WishListPage {
 
     public List<WebElement> getNumOfProducts() {
         return numOfProducts;
+    }
+
+    public WebElement getProductQuantity() {
+        return productQuantity;
     }
 }
